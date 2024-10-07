@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block titleblock %}
+<title>User Form</title>
+{% endblock %}
+
+{% block bodyblock %}
+<div style="
+        height: 100vh; 
+        background-color: #FFFFFF;
+        display: flex;
+        align-items: center;
+        justify-content: center;"
+>
+<form class="form" method="POST">
+  {% csrf_token %}
+  <label>Name:</label>
+  <input type="text" name="name">
+  <br>
+  <label>Contact:</label>
+  <input type="text" name="contact">
+  <br>
+  <label>Email:</label>
+  <input type="email" name="email">
+  <!-- {{form1}} -->
+  <br>
+  <input type="submit">
+</form>
+</div>
+
+{% endblock %}

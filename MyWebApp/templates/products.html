@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block titleblock %}
+<title>Products</title>
+{% endblock %}
+
+{% block bodyblock %}
+<div style="padding: 25px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+  {% for i in page_obj %}
+  <div>
+    <img src="{{ i.product_image.url }}" style="width: 100%; height: 300px; object-fit: contain;" />
+    <p>{{ i.description }}</p>
+    <p>MRP: {{ i.price }}</p>
+    <p>Discount: {{ i.discount }}</p>
+    <p>Net Price: {{ i.net_price }}</p>
+  </div>
+  {% endfor %}
+</div>
+<div style="display: flex; justify-content: center; align-items: center; padding: 10px;">
+  {%if page_obj.has_previous %} {# whether the previous page exists #}
+      <a href="{{page_obj.previous_page_number}}" style="margin-inline: 10px;font-size: 1rem;"><< Previous {{page_obj.previous_page_number}}</a> {# link to the prev page #}
+  {% endif %}
+  <span style="font-size: 1rem;">{{page_obj.number}}</span> {# the current page number #}
+ 
+  {%if page_obj.has_next %} {# whether the next page exists #}
+      <a href="{{page_obj.next_page_number}}" style="margin-inline: 10px; font-size: 1rem;">{{page_obj.next_page_number}} Next >></a> {# link to the next page #}
+  {% endif %}
+</div>
+{% endblock %}

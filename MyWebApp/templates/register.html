@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block titleblock %}
+<title>User Form</title>
+{% endblock %}
+
+{% block bodyblock %}
+<div style="
+background-color: #FFFFFF;
+display: flex;
+align-items: center;
+justify-content: center;"
+>
+<!-- 
+height: 100vh;
+-->
+{% if form %}
+<form class="form" method="POST" style="width: 50%;">
+{% csrf_token %}
+
+{{form}}
+<br>
+<input type="submit" style="padding: 8px 15px; background: #1975d1; border-radius: 7.5px; color: #FFFFFF;">
+</form>
+{% else %}
+
+<h2>Data Not Found</h2>
+
+{% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+  <ul style="list-style: none; display: flex; flex-direction: row; justify-content: space-evenly;text-decoration: none;">
+    <li><a href="{% url 'home' %}">Home</a></li>
+    <li><a href="{% url 'category' %}">Category</a></li>
+    <li><a href="{% url 'contacts' %}">Contacts</a></li>
+    <li><a href="{% url 'user' %}">User</a></li>
+  </ul>
+  <h1 style='text-align: center;'>This is Category Page</h1>
+  <h3>Category Selected - {{item}}</h3>
+  <ul>
+    {% for i in item %}
+      <li>{{i}}</li>
+    {% endfor %}
+  </ul>
+</body>
+</html>
